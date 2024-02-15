@@ -1,20 +1,26 @@
-'use client'
-import React, { useState } from 'react';
+
+import React, { useEffect, useState } from 'react';
 
 const DigitalWatch = () => {
-     let time = new Date().toLocaleTimeString();
+     const [currentTime, setCurrentTime] = useState(new Date());
 
-     const [ctime, setCtime] = useState(time);
+     useEffect(() => {
+          const intervalId = setInterval(() => {
+               setCurrentTime(new Date());
+          }, 1000);
 
-     const UpdateTime = () => {
-          time = new Date().toLocaleTimeString()
-          setCtime(time)
-     }
+          return () => clearInterval(intervalId);
+     }, []);
 
-     setInterval(UpdateTime, 1000)
+     const hours = currentTime.getHours().toString().padStart(2, '0');
+     const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+     const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+     const date = currentTime.getDate().toString().padStart(2, '0');
+
      return (
           <div>
-               <p>{ctime}</p>
+               <h1>{`Date${date} Hour:${hours} Minit:${minutes} Secend:${seconds}`}</h1>
+               
           </div>
      );
 };
