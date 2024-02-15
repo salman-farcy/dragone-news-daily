@@ -15,6 +15,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import Header from './Header';
+
 
 const naveItems = [
      {
@@ -48,52 +50,56 @@ function ResponsiveAppBar() {
 
 
      return (
-          <AppBar position="static" className='bg-black'>
-               <Container maxWidth="xl">
-                    <Toolbar disableGutters>
-                         <Image src={logo} width={200} height={100} alt='logo' />
+          <>
+               <Header />
+               
+               <AppBar position="static" className='bg-black'>
+                    <Container maxWidth="xl">
+                         <Toolbar disableGutters>
+                              <Image src={logo} width={200} height={100} alt='logo' />
 
-                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                              <div className="space-x-6 mx-auto ">
-                                   {naveItems.map((item) => (
-                                        <Link key={item} href={item.pathname}>
-                                             <button>
-                                                  {item.route}
-                                             </button>
+                              <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                                   <div className="space-x-6 mx-auto ">
+                                        {naveItems.map((item) => (
+                                             <Link key={item} href={item.pathname}>
+                                                  <button>
+                                                       {item.route}
+                                                  </button>
+                                             </Link>
+                                        ))}
+                                   </div>
+                              </Box>
+
+                              <Box>
+                                   <Stack direction="row" sx={{
+                                        "& svg": {
+                                             color: "white"
+                                        }
+                                   }}>
+                                        <Link href="https://www.facebook.com/salman.farcy.568/"><IconButton>
+                                             <FacebookIcon />
+                                        </IconButton></Link>
+                                        <Link href="https://twitter.com/SalmanF04555260">
+                                             <IconButton>
+                                                  <XIcon />
+                                             </IconButton>
                                         </Link>
-                                   ))}
-                              </div>
-                         </Box>
-
-                         <Box>
-                              <Stack direction="row" sx={{
-                                   "& svg": {
-                                        color: "white"
-                                   }
-                              }}>
-                                   <Link href="https://www.facebook.com/salman.farcy.568/"><IconButton>
-                                        <FacebookIcon />
-                                   </IconButton></Link>
-                                   <Link href="https://twitter.com/SalmanF04555260">
-                                        <IconButton>
-                                             <XIcon />
-                                        </IconButton>
-                                   </Link>
-                                   <Link href="https://www.linkedin.com/in/salman-farcy/">
-                                        <IconButton>
-                                             <LinkedInIcon />
-                                        </IconButton>
-                                   </Link>
-                                   <Link href="https://github.com/salman-farcy">
-                                        <IconButton>
-                                             <GitHubIcon />
-                                        </IconButton>
-                                   </Link>
-                              </Stack>
-                         </Box>
-                    </Toolbar>
-               </Container>
-          </AppBar>
+                                        <Link href="https://www.linkedin.com/in/salman-farcy/">
+                                             <IconButton>
+                                                  <LinkedInIcon />
+                                             </IconButton>
+                                        </Link>
+                                        <Link href="https://github.com/salman-farcy">
+                                             <IconButton>
+                                                  <GitHubIcon />
+                                             </IconButton>
+                                        </Link>
+                                   </Stack>
+                              </Box>
+                         </Toolbar>
+                    </Container>
+               </AppBar>
+          </>
      );
 }
 export default ResponsiveAppBar;

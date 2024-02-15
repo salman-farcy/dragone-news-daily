@@ -1,4 +1,4 @@
-import { Box, Container, IconButton, Stack } from '@mui/material';
+import { Box, Container, IconButton, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
 
 //icons
@@ -75,9 +75,9 @@ const Footer = () => {
                          }
                     </Box>
 
-                    <Box className="w-full text-center text-white">
-                         <p>@2024 Dragone News Daily Create By salman farcy </p>
-                    </Box>
+                    <Typography variant='body2' color='gray' textAlign='center' >
+                         @2024 Dragone News Daily Create By salman farcy 
+                    </Typography>
                </Container>
           </Box>
      );
