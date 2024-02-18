@@ -52,7 +52,6 @@ function ResponsiveAppBar() {
      return (
           <>
                <Header />
-               
                <AppBar position="static" className='bg-black'>
                     <Container maxWidth="xl">
                          <Toolbar disableGutters>

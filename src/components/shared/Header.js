@@ -20,7 +20,7 @@ const Header = () => {
                          {currentDate}
                     </Typography>
                     <Typography textAlign='center' >
-                         <DigitalWatch />
+                         {/* <DigitalWatch /> */}
                     </Typography>
                </Container>
           </Box>
