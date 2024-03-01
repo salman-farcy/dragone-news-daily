@@ -11,9 +11,9 @@ const NewsDetailPage = async ({ params }) => {
           <Box className="my-5">
                <Container>
                     <Grid container spacing={2}>
-                         <Grid item lg={6}>
+                         <Grid item lg={6} className="space-y-1">
                               <Image src={news.thumbnail_url} width={800} height={500} alt="News dtail page" />
-                              <Grid container spacing={2} className="mt-2">
+                              <Grid container spacing={2} >
                                    <Grid item lg={6}>
                                         <Image src={news?.thumbnail_url} width={400} height={500} alt="News dtail page" />
                                    </Grid>

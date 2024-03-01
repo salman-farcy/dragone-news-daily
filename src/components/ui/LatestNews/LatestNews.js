@@ -11,32 +11,34 @@ const LatestNews = async () => {
 
      return (
           <Box>
-               <Card className="my-5">
-                    <CardMedia>
-                         <Image className="w-full" src={data[0].thumbnail_url} width={1000} height={800} alt="top news" />
-                    </CardMedia>
-                    <CardContent>
-                         <p className="p-1 inline-block rounded-sm bg-red-500 text-white">{data[0].category}</p>
-                         <Typography gutterBottom variant="h5" component="div">
-                              {data[0].title}
-                         </Typography>
-                         <Typography gutterBottom variant="h5" component="div">
-                              By {data[0].author.name} - {data[0].author.published_date}
-                         </Typography>
-                         <Typography variant="body2" color="text.secondary" style={{ textAlign: "justify" }}>
-                              {data[0].details.length > 400 ? data[0].details.slice(0, 400) : data[0].details}
-                         </Typography>
-                    </CardContent>
-                    <CardActions>
-                         <Button size="small">Share</Button>
-                         <Button size="small">Learn More</Button>
-                    </CardActions>
-               </Card>
+               <Link href={`/${data[0].category.toLowerCase()}/${data[0]._id}`}>
+                    <Card className="my-5">
+                         <CardMedia>
+                              <Image className="w-full" src={data[0].thumbnail_url} width={1000} height={800} alt="top news" />
+                         </CardMedia>
+                         <CardContent>
+                              <p className="p-1 inline-block rounded-sm bg-red-500 text-white">{data[0].category}</p>
+                              <Typography gutterBottom variant="h5" component="div">
+                                   {data[0].title}
+                              </Typography>
+                              <Typography gutterBottom variant="h5" component="div">
+                                   By {data[0].author.name} - {data[0].author.published_date}
+                              </Typography>
+                              <Typography variant="body2" color="text.secondary" style={{ textAlign: "justify" }}>
+                                   {data[0].details.length > 400 ? data[0].details.slice(0, 400) : data[0].details}
+                              </Typography>
+                         </CardContent>
+                         <CardActions>
+                              <Button size="small">Share</Button>
+                              <Button size="small">Learn More</Button>
+                         </CardActions>
+                    </Card>
+               </Link>
 
 
                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                     {
-                         data.slice(1,5).map(news => (<Grid key={news.id} item xs={6}>
+                         data.slice(1, 5).map(news => (<Grid key={news.id} item xs={6}>
                               <Link href={`/${news.category.toLowerCase()}/${news._id}`}>
                                    <Card className="my-5">
                                         <CardMedia sx={{
